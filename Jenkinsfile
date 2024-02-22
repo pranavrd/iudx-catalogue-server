@@ -43,13 +43,15 @@ pipeline {
                                blameDisabled: true,
                                forensicsDisabled: true,
                                qualityGates: [[threshold:9, type: 'TOTAL', unstable: false]],
+                               sourceDirectories: [[path: './']],
                                tool: checkStyle(pattern: 'target/checkstyle-result.xml')
                              )
                              recordIssues(
                                enabledForFailure: true,
-                             	blameDisabled: true,
+                               blameDisabled: true,
                                forensicsDisabled: true,
                                qualityGates: [[threshold:11, type: 'TOTAL', unstable: false]],
+                               sourceDirectories: [[path: './']],
                                tool: pmdParser(pattern: 'target/pmd.xml')
                              )
                            }
